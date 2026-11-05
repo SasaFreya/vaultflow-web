@@ -1,0 +1,104 @@
+/**
+ * Dashboard 首屏 · 粉白主题换皮（仅视觉，不改数据逻辑）
+ */
+.dashboard-aobi {
+  --dash-aobi-bg: var(--aobi-cream, #FFF9F5);
+  --dash-aobi-card-bg: color-mix(in srgb, var(--vault-surface, #fff) 92%, var(--aobi-cream, #FFF9F5));
+  --dash-aobi-border: var(--aobi-border, #F8E1E4);
+  --dash-aobi-text: var(--aobi-text, var(--vault-text));
+  --dash-aobi-muted: var(--aobi-text-secondary, var(--vault-text-secondary));
+  font-family: var(--aobi-font, inherit);
+}
+
+.dashboard-aobi-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: var(--aobi-radius-lg, 28px);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--aobi-mint, #B5EAD7) 22%, white), color-mix(in srgb, var(--aobi-rose, #FFB7C5) 18%, white));
+  border: 2px solid var(--dash-aobi-border);
+  box-shadow: var(--aobi-shadow, 0 4px 20px rgba(255, 183, 197, 0.15));
+  text-decoration: none;
+  transition: transform 0.3s var(--aobi-ease-bounce), box-shadow 0.3s ease;
+}
+
+.dashboard-aobi-hero:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: var(--aobi-shadow-hover);
+}
+
+.dashboard-aobi-hero-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--dash-aobi-text);
+}
+
+.dashboard-aobi-hero-sub {
+  font-size: 12px;
+  color: var(--dash-aobi-muted);
+  margin-top: 2px;
+}
+
+.dashboard-aobi-hero-cta {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--aobi-radius-full);
+  background: linear-gradient(135deg, var(--aobi-action), var(--aobi-action-deep));
+  color: #fff;
+  box-shadow: var(--aobi-shadow-amber);
+  white-space: nowrap;
+}
+
+.dashboard-aobi .vault-card {
+  background: var(--dash-aobi-card-bg) !important;
+  border: 2px solid var(--dash-aobi-border) !important;
+  border-radius: var(--aobi-radius-md, 20px) !important;
+  box-shadow: var(--aobi-shadow) !important;
+  transition: transform 0.3s var(--aobi-ease-bounce), box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.dashboard-aobi .vault-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--aobi-shadow-hover) !important;
+  border-color: color-mix(in srgb, var(--aobi-rose) 50%, var(--dash-aobi-border)) !important;
+}
+
+.dashboard-aobi .dashboard-aobi-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--aobi-radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid var(--dash-aobi-border);
+  background: var(--dash-aobi-card-bg);
+  color: var(--dash-aobi-muted);
+  transition: all 0.25s var(--aobi-ease-bounce);
+}
+
+.dashboard-aobi .dashboard-aobi-pill:hover {
+  transform: translateY(-1px);
+  border-color: var(--aobi-action);
+  color: var(--dash-aobi-text);
+}
+
+.dashboard-aobi .dashboard-aobi-pill--primary {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--aobi-action) 25%, white), color-mix(in srgb, var(--aobi-mint) 20%, white));
+  color: var(--dash-aobi-text);
+  border-color: color-mix(in srgb, var(--aobi-action) 40%, var(--dash-aobi-border));
+}
+
+.dashboard-aobi .dashboard-networth-card {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--aobi-cream) 80%, white), color-mix(in srgb, var(--aobi-mint) 15%, white)) !important;
+  border-color: color-mix(in srgb, var(--aobi-mint-deep) 35%, var(--dash-aobi-border)) !important;
+}
+
+.dashboard-aobi .dashboard-section-title {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}

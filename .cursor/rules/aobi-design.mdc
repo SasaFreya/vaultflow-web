@@ -1,0 +1,47 @@
+---
+description: 粉白小镇萌萌风设计约束 — 小镇/RPG/UI 换皮时必须遵守
+globs: src/components/town/**/*,src/components/rpg/**/*,src/pages/town/**/*,src/pages/LifeRPG.tsx,src/styles/**/*
+alwaysApply: false
+---
+
+# 粉白小镇设计系统（Aobi Design System）
+
+## 核心识别符号（不可动摇）
+
+**「地图上的建筑 = 我的人生维度」** — 健身房/图书馆/公司/咖啡厅/小窝 是隐喻锚点。任何新功能必须挂到建筑或家具上，不得变成无关的列表页或弹窗堆叠。
+
+## 色彩比例（见 `src/styles/aobi-tokens.css`）
+
+- **70%** 暖白 + 木色：背景、卡片、地图基底
+- **25%** 薄荷青 + 琥珀金：可交互按钮、打卡、导航激活态
+- **5%** 珊瑚红 + 玫瑰粉：里程碑、连续打卡惊喜、限时峰值
+
+语义映射：
+- 打卡/主操作 → `--aobi-action`（琥珀金）
+- 结算/成功 → `--aobi-success`（薄荷青）
+- 惊喜/ streak → `--aobi-surprise`（珊瑚红）
+
+## UI 四原则
+
+1. **信息降噪**：主界面常驻按钮 ≤ 6；活动用折叠+红点，禁止满屏弹窗
+2. **圆角统一**：无直角、无锐角；按钮/卡片用 `--aobi-radius-md` 及以上
+3. **柔和反馈**：点击用弹性缩放（`--aobi-ease-bounce`），避免 `alert()` 和粗暴打断
+4. **渐进披露**：高级功能随等级/使用深度解锁，不要一次性塞满
+
+## 禁止项（反模式）
+
+- 纯黑文字 `#000`、硬阴影、工业线条图标
+- 为功能牺牲建筑隐喻（例如把打卡做成与地图无关的独立表单页）
+- 改变核心角色符号（参考页游「熊变人」教训 — 保持 emoji/2.5头身可爱角色，不要换写实风）
+- 第三方 API 集成（v1 只做手动打卡 < 10 秒）
+
+## 季度主题
+
+使用 `data-aobi-season="spring|summer|autumn|winter"` 切换季配色；默认 summer。新 UI 应引用 `--aobi-season-*` 变量，不要写死 hex。
+
+## 实现检查清单
+
+- [ ] 用的是 `aobi-tokens.css` 变量而非随意 hex
+- [ ] 主按钮是琥珀金渐变，不是 generic blue
+- [ ] hover/active 有 scale 动画
+- [ ] 新页面在 immersive 模式下不破坏全屏（无多余 Layout padding）

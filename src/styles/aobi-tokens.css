@@ -1,0 +1,140 @@
+/**
+ * 粉白小镇设计系统 · Aobi Design Tokens
+ * 来源：2026-07 风格调研报告
+ * 比例：主色 70% · 辅色 25% · 点缀 5%
+ */
+
+:root {
+  /* ── 主色盘（治愈系） ── */
+  --aobi-cream: #FFF9F5;
+  --aobi-warm-white: #FFFBF7;
+  --aobi-apricot: #FFDAC1;
+  --aobi-wood: #E8C9A8;
+  --aobi-wood-deep: #C4956A;
+  --aobi-coral: #FF8A80;
+  --aobi-rose: #FFB7C5;
+  --aobi-amber: #FFC857;
+  --aobi-amber-deep: #F5A623;
+  --aobi-mint: #B5EAD7;
+  --aobi-mint-deep: #7ECDB8;
+  --aobi-matcha: #A8D5BA;
+  --aobi-sky: #A0E7E5;
+
+  /* ── 文字（巧克力系，禁止纯黑） ── */
+  --aobi-text: #5D4037;
+  --aobi-text-secondary: #8D6E63;
+  --aobi-text-muted: #BCAAA4;
+
+  /* ── 边框 · 阴影 ── */
+  --aobi-border: #F8E1E4;
+  --aobi-border-wood: #EDD9C4;
+  --aobi-shadow: 0 4px 20px rgba(255, 183, 197, 0.15);
+  --aobi-shadow-hover: 0 8px 30px rgba(255, 183, 197, 0.25);
+  --aobi-shadow-amber: 0 4px 16px rgba(255, 200, 87, 0.35);
+
+  /* ── 圆角（无锐角） ── */
+  --aobi-radius-sm: 12px;
+  --aobi-radius-md: 20px;
+  --aobi-radius-lg: 28px;
+  --aobi-radius-full: 9999px;
+
+  /* ── 动效（Q弹） ── */
+  --aobi-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --aobi-ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── 语义映射（报告迁移表） ── */
+  --aobi-action: var(--aobi-amber);
+  --aobi-action-deep: var(--aobi-amber-deep);
+  --aobi-success: var(--aobi-mint);
+  --aobi-success-deep: var(--aobi-mint-deep);
+  --aobi-surprise: var(--aobi-coral);
+  --aobi-emphasis: var(--aobi-rose);
+
+  --aobi-font: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* 可复用组件类 */
+.btn-aobi-action {
+  background: linear-gradient(135deg, var(--aobi-action), var(--aobi-action-deep));
+  box-shadow: var(--aobi-shadow-amber);
+  transition: transform 0.3s var(--aobi-ease-bounce), box-shadow 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-aobi-action:hover {
+  transform: scale(1.04) translateY(-2px);
+}
+
+.btn-aobi-action:active {
+  transform: scale(0.96);
+}
+
+.btn-aobi-success {
+  background: linear-gradient(135deg, var(--aobi-success), var(--aobi-success-deep));
+  color: var(--aobi-text);
+}
+
+.card-aobi {
+  background: rgba(255, 255, 255, 0.94);
+  border: 2px solid var(--aobi-border);
+  border-radius: var(--aobi-radius-md);
+  box-shadow: var(--aobi-shadow);
+}
+
+@keyframes aobi-pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Q2 · 夏日深耕（2026-07 默认季主题） */
+[data-aobi-season="summer"] {
+  --aobi-season-bg: linear-gradient(165deg, #FFF9F5 0%, #FFF8E7 35%, #E8F6FF 70%, #B5EAD7 100%);
+  --aobi-season-map-sky: linear-gradient(180deg, #FFF8E7 0%, #E8F6FF 40%, #B5EAD7 75%, #96D9C1 100%);
+  --aobi-season-accent: #FFC857;
+  --aobi-season-accent-2: #7ECDB8;
+  --aobi-season-spark: #FF8A80;
+}
+
+[data-aobi-season="spring"] {
+  --aobi-season-bg: linear-gradient(165deg, #FFF9FB 0%, #FFF0F5 40%, #F0FFF4 100%);
+  --aobi-season-map-sky: linear-gradient(180deg, #FFF0F5 0%, #F0FFF4 45%, #B5EAD7 100%);
+  --aobi-season-accent: #FFB7C5;
+  --aobi-season-accent-2: #B5EAD7;
+  --aobi-season-spark: #FF8A80;
+}
+
+[data-aobi-season="autumn"] {
+  --aobi-season-bg: linear-gradient(165deg, #FFF8F0 0%, #FFECB3 40%, #E8C9A8 100%);
+  --aobi-season-map-sky: linear-gradient(180deg, #FFF8F0 0%, #FFECB3 50%, #D4A574 100%);
+  --aobi-season-accent: #F5A623;
+  --aobi-season-accent-2: #C4956A;
+  --aobi-season-spark: #FF8A80;
+}
+
+[data-aobi-season="winter"] {
+  --aobi-season-bg: linear-gradient(165deg, #FAFCFF 0%, #F0F4FF 45%, #FFF0F3 100%);
+  --aobi-season-map-sky: linear-gradient(180deg, #FAFCFF 0%, #E8EAF6 50%, #FFF0F3 100%);
+  --aobi-season-accent: #C7CEEA;
+  --aobi-season-accent-2: #FFDAC1;
+  --aobi-season-spark: #FFB7C5;
+}
+
+/* 粉白小镇模块内：统一 alias（兼容旧 --primary-pink 等） */
+.rpg-root[data-rpg-theme="obi"],
+.vault-immersive-root[data-aobi-season] {
+  --primary-pink: var(--aobi-rose);
+  --primary-pink-deep: #FF9EB5;
+  --primary-mint: var(--aobi-mint);
+  --primary-mint-deep: var(--aobi-mint-deep);
+  --bg-base: var(--aobi-cream);
+  --bg-card: #FFFFFF;
+  --bg-pink-soft: #FFF0F3;
+  --text-primary: var(--aobi-text);
+  --text-secondary: var(--aobi-text-secondary);
+  --border-light: var(--aobi-border);
+  --shadow-soft: var(--aobi-shadow);
+  --shadow-hover: var(--aobi-shadow-hover);
+  --radius-lg: var(--aobi-radius-lg);
+  --font-cute: var(--aobi-font);
+}

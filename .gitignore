@@ -1,0 +1,47 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
+!.env.example
+
+# Python venv
+venv/
+
+# Handoff archives (regenerate locally)
+team-handoff.zip
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local financial test inputs and generated parser output
+scripts/fixtures/*.txt
+bank-parser-output/
+*.db
+*.sqlite
+*.sqlite3
+
+# Local packaging and Python environments
+release/
+.venv/
+
+# Clean publication checkout (independent Git history)
+.public-source/

@@ -1,0 +1,111 @@
+/**
+ * 粉白小镇设计系统 · 完整版
+ * 引入：在 index.css 中 @import './styles/aobi-design-system.css';
+ * 季主题：在根节点设置 data-aobi-season="spring|summer|autumn|winter"
+ */
+@import './aobi-tokens.css';
+
+/* ── 报告兼容 alias ── */
+:root {
+  --bg-primary: var(--aobi-cream);
+  --bg-card: #ffffff;
+  --accent-primary: var(--aobi-coral);
+  --accent-secondary: var(--aobi-sky);
+  --accent-success: var(--aobi-mint);
+  --accent-warning: var(--aobi-amber);
+  --accent-danger: var(--aobi-surprise);
+  --text-primary: var(--aobi-text);
+  --text-secondary: var(--aobi-text-secondary);
+  --border-color: var(--aobi-border);
+  --shadow-card: var(--aobi-shadow);
+  --shadow-elevated: var(--aobi-shadow-hover);
+  --radius-sm: var(--aobi-radius-sm);
+  --radius-md: var(--aobi-radius-md);
+  --radius-lg: var(--aobi-radius-lg);
+  --radius-xl: var(--aobi-radius-full);
+}
+
+/* ── 组件类 ── */
+.aobi-card,
+.card-aobi {
+  background: var(--bg-card);
+  border: 2px solid var(--aobi-border);
+  border-radius: var(--aobi-radius-md);
+  box-shadow: var(--aobi-shadow);
+  transition: transform 0.3s var(--aobi-ease-bounce), box-shadow 0.3s ease;
+}
+
+.aobi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--aobi-shadow-hover);
+}
+
+.aobi-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: var(--aobi-radius-full);
+  font-family: var(--aobi-font);
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.25s var(--aobi-ease-bounce), box-shadow 0.25s ease;
+}
+
+.aobi-btn-primary,
+.btn-aobi-action {
+  background: linear-gradient(135deg, var(--aobi-action), var(--aobi-action-deep));
+  color: #fff;
+  box-shadow: var(--aobi-shadow-amber);
+}
+
+.aobi-btn-primary:hover,
+.btn-aobi-action:hover {
+  transform: scale(1.04) translateY(-2px);
+}
+
+.aobi-btn-secondary {
+  background: var(--aobi-cream);
+  color: var(--aobi-text-secondary);
+  border-color: var(--aobi-border);
+}
+
+.aobi-btn-success {
+  background: linear-gradient(135deg, var(--aobi-success), var(--aobi-success-deep));
+  color: var(--aobi-text);
+}
+
+/* ── 动画 ── */
+@keyframes aobi-bounce-in {
+  0% { opacity: 0; transform: scale(0.9); }
+  60% { transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes aobi-float-up {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes aobi-pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(0.98); }
+}
+
+@keyframes aobi-shake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+@keyframes aobi-breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.aobi-animate-bounce-in { animation: aobi-bounce-in 0.45s var(--aobi-ease-bounce) both; }
+.aobi-animate-float { animation: aobi-float-up 3s ease-in-out infinite; }
+.aobi-animate-breathe { animation: aobi-breathe 2s ease-in-out infinite; }

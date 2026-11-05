@@ -1,0 +1,4 @@
+# Raw bank statement extracts belong only in the private development history.
+scripts/fixtures/*.txt export-ignore
+# Historical handoff copies are not part of the current public source snapshot.
+team-handoff/ export-ignore

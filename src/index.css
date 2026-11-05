@@ -1,0 +1,992 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import './styles/aobi-design-system.css';
+@import './styles/dashboard-aobi.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 35% 5%;
+    --foreground: 210 40% 98%;
+    --card: 220 25% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 239 84% 67%;
+    --radius: 0.75rem;
+    --sidebar-background: 222 35% 5%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 239 84% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 15% 15%;
+    --sidebar-ring: 239 84% 67%;
+
+    --vault-bg: #0B0E14;
+    --vault-surface: #151A26;
+    --vault-primary: #6366F1;
+    --vault-accent: #10B981;
+    --vault-text: #F8FAFC;
+    --vault-text-secondary: #94A3B8;
+    --vault-border: #1E293B;
+    --vault-red: #EF4444;
+    --vault-yellow: #F59E0B;
+    --vault-header-bg: rgba(11, 14, 20, 0.85);
+    --vault-nav-active-bg: rgba(99, 102, 241, 0.15);
+    --vault-input-bg: #0B0E14;
+  }
+
+  [data-theme="light"] {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 239 84% 67%;
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 239 84% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 239 84% 67%;
+
+    --vault-bg: #F8FAFC;
+    --vault-surface: #FFFFFF;
+    --vault-primary: #4F46E5;
+    --vault-accent: #059669;
+    --vault-text: #1F2937;
+    --vault-text-secondary: #6B7280;
+    --vault-border: #E2E8F0;
+    --vault-red: #DC2626;
+    --vault-yellow: #D97706;
+    --vault-header-bg: rgba(248, 250, 252, 0.9);
+    --vault-nav-active-bg: rgba(79, 70, 229, 0.1);
+    --vault-input-bg: #F1F5F9;
+  }
+
+  [data-theme="pink"] {
+    --background: 330 100% 98%;
+    --foreground: 335 78% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 335 78% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 335 78% 17%;
+    --primary: 330 81% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 330 100% 96%;
+    --secondary-foreground: 335 78% 17%;
+    --muted: 330 100% 96%;
+    --muted-foreground: 335 30% 45%;
+    --accent: 330 81% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 330 50% 90%;
+    --input: 330 50% 90%;
+    --ring: 330 81% 60%;
+    --sidebar-background: 330 100% 98%;
+    --sidebar-foreground: 335 78% 17%;
+    --sidebar-primary: 330 81% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 330 100% 96%;
+    --sidebar-accent-foreground: 335 78% 17%;
+    --sidebar-border: 330 50% 90%;
+    --sidebar-ring: 330 81% 60%;
+
+    --vault-bg: #FAF5F5;
+    --vault-surface: #FFFFFF;
+    --vault-primary: #DB2777;
+    --vault-accent: #BE185D;
+    --vault-text: #3D1F2B;
+    --vault-text-secondary: #7C4D5A;
+    --vault-border: #F5D0E0;
+    --vault-red: #BE123C;
+    --vault-yellow: #C2410C;
+    --vault-header-bg: rgba(250, 245, 245, 0.92);
+    --vault-nav-active-bg: rgba(219, 39, 119, 0.1);
+    --vault-input-bg: #FFF5F7;
+  }
+
+  [data-theme="blue"] {
+    --background: 204 100% 97%;
+    --foreground: 204 80% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 204 80% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 204 80% 16%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 204 100% 95%;
+    --secondary-foreground: 204 80% 16%;
+    --muted: 204 100% 95%;
+    --muted-foreground: 204 30% 40%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 204 50% 88%;
+    --input: 204 50% 88%;
+    --ring: 199 89% 48%;
+    --sidebar-background: 204 100% 97%;
+    --sidebar-foreground: 204 80% 16%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 204 100% 95%;
+    --sidebar-accent-foreground: 204 80% 16%;
+    --sidebar-border: 204 50% 88%;
+    --sidebar-ring: 199 89% 48%;
+
+    --vault-bg: #F0F5FA;
+    --vault-surface: #FFFFFF;
+    --vault-primary: #0D6EFD;
+    --vault-accent: #0A58CA;
+    --vault-text: #0F2942;
+    --vault-text-secondary: #4A6785;
+    --vault-border: #CFE2F3;
+    --vault-red: #DC2626;
+    --vault-yellow: #D97706;
+    --vault-header-bg: rgba(240, 249, 255, 0.9);
+    --vault-nav-active-bg: rgba(14, 165, 233, 0.12);
+    --vault-input-bg: #E0F2FE;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--vault-bg);
+    color: var(--vault-text);
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  html[data-theme] *,
+  html[data-theme] *::before,
+  html[data-theme] *::after {
+    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.2s ease;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .vault-card {
+    @apply rounded-xl border p-5;
+    background-color: var(--vault-surface);
+    border-color: var(--vault-border);
+  }
+  .vault-card-hover {
+    @apply transition-all duration-300;
+  }
+  .vault-card-hover:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.08);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #6366F1 0%, #10B981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glow-primary {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  .vault-heading {
+    color: var(--vault-text);
+  }
+  .vault-muted {
+    color: var(--vault-text-secondary);
+  }
+  .vault-btn-primary {
+    background-color: var(--vault-primary);
+    color: #fff;
+  }
+  /* 浅色主题：标题/正文上的 text-white 自动改用深色字 */
+  [data-theme="light"] .vault-card h1.text-white,
+  [data-theme="light"] .vault-card h2.text-white,
+  [data-theme="light"] .vault-card h3.text-white,
+  [data-theme="light"] .vault-card p.text-white:not(.keep-white),
+  [data-theme="pink"] .vault-card h1.text-white,
+  [data-theme="pink"] .vault-card h2.text-white,
+  [data-theme="pink"] .vault-card h3.text-white,
+  [data-theme="pink"] .vault-card p.text-white:not(.keep-white),
+  [data-theme="blue"] .vault-card h1.text-white,
+  [data-theme="blue"] .vault-card h2.text-white,
+  [data-theme="blue"] .vault-card h3.text-white,
+  [data-theme="blue"] .vault-card p.text-white:not(.keep-white) {
+    color: var(--vault-text);
+  }
+}
+
+@layer utilities {
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-up.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Recharts tooltip custom styles */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--vault-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vault-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* ── Life RPG theme skins ── */
+.rpg-root {
+  --rpg-bg: #F0F4F8;
+  --rpg-surface: #FFFFFF;
+  --rpg-primary: #4A90E2;
+  --rpg-accent: #5BA0F0;
+  --rpg-text: #2C3E50;
+  --rpg-text-secondary: #7F8C9B;
+  --rpg-border: #D6E4F0;
+  --rpg-gold: #F5A623;
+  --rpg-room-bg: linear-gradient(180deg, #E8F2FC 0%, #F0F4F8 100%);
+  --rpg-font: 'Inter', sans-serif;
+  --rpg-radius: 0.75rem;
+  --rpg-glow: 0 0 12px rgba(74, 144, 226, 0.25);
+}
+
+.rpg-root[data-rpg-theme="classic"] {
+  --rpg-bg: #F0F4F8;
+  --rpg-surface: #FFFFFF;
+  --rpg-primary: #4A90E2;
+  --rpg-accent: #5BA0F0;
+  --rpg-text: #2C3E50;
+  --rpg-text-secondary: #7F8C9B;
+  --rpg-border: #D6E4F0;
+  --rpg-gold: #F5A623;
+  --rpg-room-bg: linear-gradient(180deg, #E8F2FC 0%, #F0F4F8 100%);
+  --rpg-glow: 0 0 12px rgba(74, 144, 226, 0.25);
+}
+
+.rpg-root[data-rpg-theme="classic"] .rpg-panel {
+  box-shadow: 0 2px 12px rgba(74, 144, 226, 0.08);
+}
+
+.rpg-root[data-rpg-theme="cyberpunk"] {
+  --rpg-bg: #050508;
+  --rpg-surface: #0a0a12;
+  --rpg-primary: #00D4FF;
+  --rpg-accent: #FF00FF;
+  --rpg-text: #E0F7FF;
+  --rpg-text-secondary: #6B8299;
+  --rpg-border: #1a1a3e;
+  --rpg-gold: #00FF88;
+  --rpg-room-bg: linear-gradient(180deg, #0a0020 0%, #050508 100%);
+  --rpg-glow: 0 0 12px rgba(0, 212, 255, 0.35);
+}
+
+.rpg-root[data-rpg-theme="cyberpunk"] .rpg-panel {
+  box-shadow: 0 0 1px rgba(0, 212, 255, 0.5), inset 0 0 30px rgba(0, 212, 255, 0.03);
+}
+
+.rpg-root[data-rpg-theme="pixel"] {
+  --rpg-bg: #2d2d2d;
+  --rpg-surface: #3d3d3d;
+  --rpg-primary: #FF6B6B;
+  --rpg-accent: #4ECDC4;
+  --rpg-text: #FFFFFF;
+  --rpg-text-secondary: #AAAAAA;
+  --rpg-border: #555555;
+  --rpg-gold: #FFE66D;
+  --rpg-room-bg: linear-gradient(180deg, #3d3d3d 0%, #2d2d2d 100%);
+  --rpg-font: 'Press Start 2P', monospace;
+  --rpg-radius: 0;
+}
+
+.rpg-root[data-rpg-theme="pixel"] .rpg-panel,
+.rpg-root[data-rpg-theme="pixel"] .rpg-room-scene {
+  border-radius: 0 !important;
+  image-rendering: pixelated;
+}
+
+.rpg-root[data-rpg-theme="pixel"] h1,
+.rpg-root[data-rpg-theme="pixel"] h2,
+.rpg-root[data-rpg-theme="pixel"] h3,
+.rpg-root[data-rpg-theme="pixel"] button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.65rem;
+  line-height: 1.6;
+}
+
+.rpg-root[data-rpg-theme="obi"] {
+  --rpg-bg: #FFF5F7;
+  --rpg-surface: #FFFFFF;
+  --rpg-primary: #FF6B9D;
+  --rpg-accent: #4ECDC4;
+  --rpg-text: #4A3728;
+  --rpg-text-secondary: #9B8B7E;
+  --rpg-border: #FFD6E7;
+  --rpg-gold: #FFB347;
+  --rpg-room-bg: linear-gradient(180deg, #E8F8F5 0%, #FFF5F7 100%);
+  --rpg-radius: 1.25rem;
+  --rpg-glow: 0 6px 28px rgba(255, 107, 157, 0.16);
+
+  /* 粉白设计系统 · 小镇/RPG 模块内生效 */
+  --primary-pink: #FFB7C5;
+  --primary-pink-deep: #FF9EB5;
+  --primary-mint: #B5EAD7;
+  --bg-base: #FFF9F5;
+  --bg-card: #FFFFFF;
+  --bg-pink-soft: #FFF0F3;
+  --text-primary: #5D4037;
+  --text-secondary: #8D6E63;
+  --border-light: #F8E1E4;
+  --shadow-soft: 0 4px 20px rgba(255, 183, 197, 0.15);
+  --shadow-hover: 0 8px 30px rgba(255, 183, 197, 0.25);
+  --radius-lg: 28px;
+  --font-cute: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: var(--font-cute);
+}
+
+.rpg-root[data-rpg-theme="obi"] .rpg-panel {
+  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.12);
+  border-radius: 1.25rem;
+}
+
+/* 人生小镇 · 粉白萌萌风 */
+.rpg-root[data-rpg-theme="obi"].town-root {
+  background: linear-gradient(165deg, #FFF9FB 0%, #FFF0F5 35%, #E8FAF7 100%);
+  border-radius: 1.5rem;
+  padding: 0.75rem 1rem 1.25rem;
+  min-height: min(100%, 100vh);
+}
+
+.rpg-root[data-rpg-theme="obi"].town-root.town-immersive {
+  border-radius: 0;
+  padding: 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+/* ========== 沉浸模式：小镇 / RPG 占满屏幕 ========== */
+.vault-immersive-root {
+  background: var(--aobi-season-bg, linear-gradient(165deg, #FFF9F5 0%, #FFF0F5 40%, #E8FAF7 100%));
+}
+
+.vault-immersive-exit {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5D4037;
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid #F8E1E4;
+  box-shadow: 0 4px 20px rgba(255, 183, 197, 0.2);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.vault-immersive-exit:hover {
+  transform: scale(1.04) translateY(-1px);
+  box-shadow: 0 8px 28px rgba(255, 183, 197, 0.3);
+  border-color: #FFB7C5;
+}
+
+.town-hud {
+  padding: 48px 12px 8px;
+  background: rgba(255, 249, 245, 0.88);
+  border-bottom: 2px solid #F8E1E4;
+  backdrop-filter: blur(12px);
+}
+
+.town-hud-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.town-hud-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary, #5D4037);
+  font-family: var(--font-cute, inherit);
+}
+
+.town-hud-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.town-hud-nav-mobile {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  padding-top: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.town-hud-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: var(--aobi-radius-full, 9999px);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--aobi-text-secondary, var(--text-secondary, #8D6E63));
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--aobi-border, var(--border-light, #F8E1E4));
+  transition: all 0.3s var(--aobi-ease-bounce, cubic-bezier(0.34, 1.56, 0.64, 1));
+  white-space: nowrap;
+}
+
+.town-hud-pill--compact {
+  padding: 8px 10px;
+}
+
+.town-hud-pill--ghost:hover,
+.town-hud-pill:hover {
+  transform: translateY(-1px);
+  border-color: var(--primary-pink, #FFB7C5);
+  color: var(--text-primary, #5D4037);
+}
+
+.town-hud-pill--active {
+  background: linear-gradient(135deg, var(--aobi-action, #FFC857), var(--aobi-action-deep, #F5A623));
+  border-color: transparent;
+  color: #fff;
+  box-shadow: var(--aobi-shadow-amber);
+}
+
+.town-hud-gold {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  background: #FFF8E1;
+  border: 2px solid #FFE082;
+  color: #8D6E63;
+}
+
+.town-immersive-scroll {
+  padding: 12px 16px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* 全屏地图 */
+.town-map-canvas {
+  overflow: hidden;
+}
+
+.town-map-sky {
+  position: absolute;
+  inset: 0;
+  background: var(--aobi-season-map-sky, linear-gradient(180deg, #FFF8E7 0%, #E8F6FF 40%, #B5EAD7 75%, #96D9C1 100%));
+}
+
+.town-map-cloud {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.75);
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+.town-map-cloud--1 { width: 120px; height: 44px; top: 12%; left: 8%; opacity: 0.85; }
+.town-map-cloud--2 { width: 90px; height: 36px; top: 18%; right: 12%; opacity: 0.7; }
+.town-map-cloud--3 { width: 140px; height: 48px; top: 8%; left: 42%; opacity: 0.55; }
+
+.town-map-chip {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #5D4037;
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid #F8E1E4;
+  box-shadow: 0 4px 16px rgba(255, 183, 197, 0.12);
+  pointer-events: auto;
+}
+
+.town-map-chip--mint {
+  background: rgba(240, 255, 244, 0.95);
+  border-color: #B5EAD7;
+}
+
+.town-map-pin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.town-map-pin-body {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: #fff;
+  border: 3px solid #FFD6E7;
+  box-shadow: 0 8px 24px rgba(255, 107, 157, 0.18);
+}
+
+.town-map-pin-body--home {
+  width: 68px;
+  height: 60px;
+  border-radius: 22px 22px 16px 16px;
+  border-color: #FFB7C5;
+  background: linear-gradient(145deg, #FFF9F5, #FFF0F3);
+}
+
+.town-map-pin-label {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  color: #5D4037;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #F8E1E4;
+  box-shadow: 0 2px 10px rgba(255, 183, 197, 0.15);
+}
+
+.town-map-pin-sub {
+  font-size: 9px;
+  color: #8D6E63;
+  opacity: 0.85;
+}
+
+.town-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 600;
+  color: #5D4037;
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid #F8E1E4;
+  box-shadow: 0 4px 20px rgba(255, 183, 197, 0.12);
+}
+
+.town-map-hint {
+  font-size: 10px;
+  color: #8D6E63;
+  opacity: 0.8;
+}
+
+.town-location-scene {
+  font-family: var(--font-cute, inherit);
+}
+
+.town-location-header {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 2px solid #F8E1E4;
+  backdrop-filter: blur(10px);
+}
+
+.town-hotspot-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 130px;
+  padding: 20px 16px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 2px solid #F8E1E4;
+  box-shadow: 0 8px 28px rgba(255, 183, 197, 0.15);
+  color: #5D4037;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.town-hotspot-btn:hover {
+  transform: scale(1.06) translateY(-4px);
+  box-shadow: 0 14px 36px rgba(255, 183, 197, 0.28);
+  border-color: #FFB7C5;
+}
+
+.town-hotspot-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--aobi-radius-full, 9999px);
+  color: var(--aobi-text, #5D4037);
+  background: linear-gradient(135deg, var(--aobi-action, #FFC857), var(--aobi-action-deep, #F5A623));
+  box-shadow: var(--aobi-shadow-amber);
+}
+
+.town-checkin-toast {
+  background: color-mix(in srgb, var(--aobi-success, #B5EAD7) 25%, white);
+  color: var(--aobi-text, #5D4037);
+  border: 2px solid var(--aobi-mint-deep, #7ECDB8);
+}
+
+.town-obi-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 2px solid #F8E1E4;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(255, 183, 197, 0.1);
+  color: #5D4037;
+}
+
+/* RPG 沉浸页 */
+.rpg-immersive {
+  background: var(--aobi-season-bg, linear-gradient(165deg, #FFF9FB 0%, #FFF0F5 30%, #E8FAF7 100%));
+  font-family: var(--aobi-font, var(--font-cute, inherit));
+}
+
+.rpg-immersive-inner {
+  padding: 52px 16px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.rpg-immersive-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-pink, #FFB7C5), var(--primary-mint, #B5EAD7));
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.25);
+}
+
+.rpg-root[data-rpg-theme="obi"].town-root article,
+.rpg-root[data-rpg-theme="obi"].town-root .town-obi-card {
+  border-radius: 1.25rem !important;
+  border-width: 2px;
+  box-shadow: 0 8px 32px rgba(255, 107, 157, 0.08);
+}
+
+.rpg-root[data-rpg-theme="obi"] .town-nav-btn {
+  border-radius: 9999px;
+  border-width: 2px;
+}
+
+.rpg-root[data-rpg-theme="obi"] button[type="button"]:not(.town-nav-btn) {
+  border-radius: 9999px;
+}
+
+.rpg-root[data-rpg-theme="obi"] input,
+.rpg-root[data-rpg-theme="obi"] textarea,
+.rpg-root[data-rpg-theme="obi"] select {
+  border-radius: 1rem !important;
+  border-width: 2px !important;
+  border-color: var(--rpg-border) !important;
+}
+
+.rpg-root[data-rpg-theme="obi"] .town-scene-root header {
+  border-radius: 0 0 1.25rem 1.25rem;
+}
+
+.rpg-root[data-rpg-theme="obi"] .iso-room-scene {
+  border-width: 2px;
+  border-color: #FFD6E7;
+}
+
+.iso-room-scene .iso-furniture-visual {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.iso-room-scene--art .iso-furniture--art img {
+  transition: filter 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.iso-room-scene .iso-furniture:focus-visible {
+  outline: 2px solid var(--rpg-primary);
+  outline-offset: 4px;
+  border-radius: 1rem;
+}
+
+.iso-room-scene .iso-character-body {
+  animation: iso-character-float 3s ease-in-out infinite;
+}
+
+@keyframes iso-character-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.rpg-root[data-rpg-theme="cyberpunk"] .iso-room-scene {
+  border-color: #1a1a3e;
+  box-shadow: 0 0 24px rgba(0, 212, 255, 0.2);
+}
+
+.rpg-root[data-rpg-theme="pixel"] .iso-room-scene {
+  border-radius: 0 !important;
+}
+
+.rpg-root[data-rpg-theme="pixel"] .iso-furniture-visual {
+  border-radius: 0 !important;
+}
+
+.rpg-section-highlight {
+  animation: rpg-highlight 1.2s ease-out;
+}
+
+@keyframes rpg-highlight {
+  0% { box-shadow: 0 0 0 0 var(--rpg-primary); }
+  30% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--rpg-primary) 40%, transparent); }
+  100% { box-shadow: none; }
+}
+
+/* ── 建筑微场景 diorama ── */
+.micro-scene-stage {
+  background: color-mix(in srgb, var(--aobi-cream, #FFF9F5) 60%, transparent);
+  border: 2px solid var(--aobi-border-wood, #EDD9C4);
+  box-shadow: inset 0 4px 24px rgba(255, 200, 87, 0.08), var(--aobi-shadow);
+}
+
+.micro-scene-floor {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  width: 78%;
+  height: 28%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--aobi-wood, #E8C9A8) 55%, transparent) 0%, transparent 70%);
+  opacity: 0.85;
+}
+
+.micro-scene-story {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  right: 14px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.micro-scene-story-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--aobi-text, #5D4037);
+  line-height: 1.45;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.micro-scene-ambient {
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--aobi-text-muted, #BCAAA4);
+  font-style: italic;
+}
+
+.micro-scene-prop {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.micro-scene-prop-emoji {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 3px 6px rgba(93, 64, 55, 0.12));
+  animation: micro-prop-float 4s ease-in-out infinite;
+}
+
+.micro-scene-prop-label {
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--aobi-text-secondary, #8D6E63);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1px 6px;
+  border-radius: 9999px;
+  border: 1px solid var(--aobi-border, #F8E1E4);
+  opacity: 0.9;
+}
+
+@keyframes micro-prop-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.micro-scene-hotspot {
+  position: absolute;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  max-width: 140px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  animation: micro-hotspot-enter 0.5s var(--aobi-ease-bounce, cubic-bezier(0.34, 1.56, 0.64, 1)) both;
+}
+
+@keyframes micro-hotspot-enter {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.micro-scene-hotspot-glow {
+  position: absolute;
+  inset: -8px -12px;
+  border-radius: 24px;
+  background: radial-gradient(circle, rgba(255, 200, 87, 0.25) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.micro-scene-hotspot:hover .micro-scene-hotspot-glow,
+.micro-scene-hotspot:focus-visible .micro-scene-hotspot-glow {
+  opacity: 1;
+}
+
+.micro-scene-hotspot-icon {
+  font-size: 2rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: #fff;
+  border: 3px solid var(--aobi-action, #FFC857);
+  box-shadow: var(--aobi-shadow-amber);
+  transition: transform 0.35s var(--aobi-ease-bounce);
+}
+
+.micro-scene-hotspot:hover .micro-scene-hotspot-icon {
+  transform: scale(1.1) translateY(-4px);
+}
+
+.micro-scene-hotspot-name {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--aobi-text, #5D4037);
+}
+
+.micro-scene-hotspot-story {
+  font-size: 9px;
+  line-height: 1.35;
+  text-align: center;
+  color: var(--aobi-text-secondary, #8D6E63);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.micro-scene-hotspot:hover .micro-scene-hotspot-story,
+.micro-scene-hotspot:focus-visible .micro-scene-hotspot-story {
+  opacity: 1;
+  max-height: 48px;
+}
+
+.micro-scene-hotspot-cta {
+  font-size: 9px !important;
+  color: var(--aobi-text, #5D4037) !important;
+}
+
+/* Hub 小镇样式见 styles/hub-town-map.css */
